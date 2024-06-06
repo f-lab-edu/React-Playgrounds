@@ -4,3 +4,20 @@
 type PartialType<T> = {
   [K in keyof T]?: T[K];
 };
+
+/**
+ * Example
+ */
+type Person = {
+  name: string;
+  age: number;
+};
+
+type Manager = {
+  group: string;
+} & PartialType<Person>;
+
+const manager: Manager = {
+  group: 'A',
+  name: 'apple',
+};
